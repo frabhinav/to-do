@@ -20,7 +20,7 @@ import {
 
 function Sidebar({ tasks = [] }) {
   const menuItems = [
-    { text: "All Tasks", icon: <ListIcon />, count: tasks.length },
+    { text: "All Tasks", icon: <ListIcon />, count: tasks.length || 11 },
     { text: "Today", icon: <TodayIcon />, count: 5 },
     { text: "Important", icon: <StarIcon />, count: 3 },
     { text: "Planned", icon: <DateRangeIcon />, count: 7 },
@@ -90,7 +90,7 @@ function Sidebar({ tasks = [] }) {
                 py: 1.5,
                 px: 2,
                 "&:hover": {
-                  bgcolor: index === 1 ? "success.light" : "action.hover",
+                  bgcolor: "action.hover",
                 },
               }}
             >
@@ -106,7 +106,7 @@ function Sidebar({ tasks = [] }) {
                 primary={item.text}
                 sx={{
                   "& .MuiListItemText-primary": {
-                    color: index === 1 ? "success.main" : "text.primary",
+                    color: index === 1 ? "text.primary" : "text.primary",
                     fontSize: "0.95rem",
                     fontWeight: 500,
                   },
