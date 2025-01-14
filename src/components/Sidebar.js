@@ -20,7 +20,7 @@ import {
 
 function Sidebar({ tasks = [] }) {
   const menuItems = [
-    { text: "All Tasks", icon: <ListIcon />, count: tasks.length || 11 },
+    { text: "All Tasks", icon: <ListIcon />, count: tasks.length },
     { text: "Today", icon: <TodayIcon />, count: 5 },
     { text: "Important", icon: <StarIcon />, count: 3 },
     { text: "Planned", icon: <DateRangeIcon />, count: 7 },
@@ -28,7 +28,7 @@ function Sidebar({ tasks = [] }) {
   ];
 
   const completedTasks = tasks.filter((task) => task.completed).length;
-  const totalTasks = tasks.length || 11;
+  const totalTasks = tasks.length;
   const progress = totalTasks > 0 ? (completedTasks / totalTasks) * 360 : 0;
 
   return (
